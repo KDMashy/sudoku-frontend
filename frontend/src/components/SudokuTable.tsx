@@ -13,8 +13,6 @@ function SudokuTable() {
         cookie.set('sudokuTable', defaultSudoku.getMtx(), {path: '/'})
     }
 
-    
-
     return (
         <table id='sudokuTable'>
             <SudokuPart x={0} y={0}/>

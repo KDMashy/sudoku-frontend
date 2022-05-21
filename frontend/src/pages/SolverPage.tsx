@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Cookies from 'universal-cookie';
 import { Sudoku } from '../classes/Sudoku';
 import SudokuTable from '../components/SudokuTable';

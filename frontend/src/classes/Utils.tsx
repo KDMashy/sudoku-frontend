@@ -14,7 +14,7 @@ export class Utils {
         return true;
     }
 
-    async sendSubscribe(email:string) {
+    async sendSubscribe(email:string, difficulty:string) {
         
         // Axios-sal küldene egy Api kérést, de mivel nem érkezik sehova,
         // nem ad response-t sem, ha adna bármit is, akkor true értéket
@@ -22,6 +22,7 @@ export class Utils {
 
         // const respReg = await axios.post('fakecall', {
         //     email: email,
+        //     difficulty: difficulty
         // });
         var respReg = null;
         if(respReg){

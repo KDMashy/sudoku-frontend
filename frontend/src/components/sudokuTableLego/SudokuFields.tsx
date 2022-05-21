@@ -1,6 +1,4 @@
-import { timeStamp } from 'console';
 import React from 'react'
-import Cookies from 'universal-cookie';
 import SudokuInput from './SudokuInput';
 import { SudokuProps } from '../../classes/SudokuInputInterface'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import SudokuTable from '../components/SudokuTable';
 import '../styles/Main.css';
 
 function LandingPage() {

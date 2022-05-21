@@ -22,6 +22,7 @@ export class Sudoku {
 
     getMtx() { return this.sudokuMtx; }
 
+    //számolás
     solve(mtx:any, row:number, col:number): any {
         if (row == 8 && col == 9){
             return true;
@@ -52,6 +53,7 @@ export class Sudoku {
         return false;
     }
 
+    //Ellenőrzés, hogy megfelelő lesz-e a szám
     safe(mtx:any, row:number, col:number, num:number){
         for(var x = 0; x <= 8; x++){
             if (mtx[row][x] == num){
