@@ -34,14 +34,19 @@ function SolverPage() {
                 if(!text){
                     text = '0';
                 }
-                if(!sudoku.safe(mtx, i, j, parseInt(text)) && parseInt(text) > 0){
+                var num = parseInt(text);
+                if(
+                    !sudoku.safe(mtx, i, j, num) &&
+                     num > 0 || num < 0 || num > 9){
                     return alert('Nem megoldható a feladvány!')
                 }
-                mtx[i][j] = parseInt(text);
+                mtx[i][j] = num;
             }
         }
 
-        cookie.set('userSudoku', mtx, {path: '/'});
+        if(cookie.get('userSudoku') === ""){
+            cookie.set('userSudoku', mtx, {path: '/'});
+        }
         sudoku.solve(mtx, 0, 0)
         cookie.set('sudokuTable', sudoku.getMtx(), {path: '/'});
         window.location.replace("http://localhost:3000/solver");
@@ -73,6 +78,14 @@ function SolverPage() {
                             delMtx();
                             window.location.replace("http://localhost:3000/solver");
                         }}>Törlés</button>
+                    <div className="defaultContainer">
+                        <p>
+                            A megoldás gombra kattintva lehet megoldatni <br />
+                            A törlés gombra kattintva lehet megoldani <br />
+                            Csak egy lehetséges megoldást fog visszaadni a program <br />
+                            A megoldásra kattintva megoldás után jelzi a beírt számokat
+                        </p>
+                    </div>
                 </div>
             </form>
         </div>
