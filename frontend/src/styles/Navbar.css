@@ -1,0 +1,181 @@
+.navbar {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 26%, rgba(195,134,0,1) 100%);
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar .leftside {
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logoImg {
+    width: 100%;
+    height: 200px;
+    transition: width 1s, height 1s, border-radius 1s;
+}
+
+.navbar .logoImg:hover {
+    width: 100%;
+    height: 225px;
+    border-radius: 100px;
+}
+
+.navbar .rightside {
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar a {
+    color: #000;
+    text-shadow: 1px 1px rgb(131, 131, 131);
+    font-weight: bold;
+    font-size: 150%;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.navbar .hiddenLinks a {
+    padding: 10px 30px;
+    border-radius: 20px;
+    transition: background 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s;
+}
+
+.navbar .hiddenLinks a:hover {
+    background: rgba(80, 67, 43, 0.521);
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.navbar .rightside a {
+    display: block;
+    padding: 50px 30px;
+    border-radius: 20px;
+    transition: background 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s;
+}
+
+.navbar .rightside a:hover {
+    background: rgba(80, 67, 43, 0.521);
+    border-radius: 50px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+.navbar .rightside button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.navbar .rightside svg {
+    font-size: 40px;
+}
+
+.navbar #open {
+    padding-left: 0px;
+}
+.navbar #open img {
+    display: none;
+}
+
+.navbar #close img {
+    display: inherit;
+}
+
+.navbar #open .hiddenLinks {
+    display: flex;
+}
+
+.navbar #close .hiddenLinks {
+    display: none;
+}
+
+.navbar #open a {
+    width: 70px;
+    margin: 5px;
+}
+
+.navbar .rightside button:hover {
+    background-color: black;
+}
+
+@media only screen and (max-width: 900px) {
+    .navbar {
+        background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(195,134,0,1) 100%);
+    }
+
+    .navbar a {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .navbar .rightside{
+        flex-wrap: wrap;
+    }
+
+    .navbar .rightside a {
+        padding: 10px 15px;
+        font-size: 150%;
+        margin: 3px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        background: linear-gradient(90deg, rgba(255,255,255,1) 60%, rgba(195,134,0,1) 100%);
+    }
+
+    .navbar .leftside .hiddenLinks {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .navbar .leftside .hiddenLinks a {
+        padding: 5px 100px 5px 40px;
+    }
+
+    .navbar .rightside a {
+        display: none;
+    }
+
+    .navbar .rightside {
+        justify-content: flex-end;
+    }
+
+    .navbar .rightside button {
+        display: inline-block;
+        vertical-align: middle;
+        height: 200px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .navbar .rightside button {
+        display: none;
+    }
+
+    .navbar .hiddenLinks {
+        display: none;
+    }
+
+    .navbar a {
+        font-weight: bold;
+        font-size: 150%;
+        text-decoration: none;
+        margin: 10px;
+    }
+}
