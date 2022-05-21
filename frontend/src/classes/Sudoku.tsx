@@ -1,3 +1,5 @@
+import Cookies from "universal-cookie";
+
 export class Sudoku {
 
     private sudokuMtx = [   [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
@@ -37,9 +39,10 @@ export class Sudoku {
         for(var num = 1; num < 10; num++){
             if (this.safe(mtx, row, col, num)){
                 mtx[row][col] = num;
+                this.sudokuMtx = mtx;
 
                 if(this.solve(mtx, row, col + 1)){
-                    return this.sudokuMtx = mtx;
+                    return true;
                 }
             }
 
@@ -49,7 +52,7 @@ export class Sudoku {
         return false;
     }
 
-    private safe(mtx:any, row:number, col:number, num:number){
+    safe(mtx:any, row:number, col:number, num:number){
         for(var x = 0; x <= 8; x++){
             if (mtx[row][x] == num){
                 return false;

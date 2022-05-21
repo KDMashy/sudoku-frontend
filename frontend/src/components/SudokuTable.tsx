@@ -8,8 +8,12 @@ function SudokuTable() {
 
     const cookie = new Cookies();
 
-    const defaultSudoku = new Sudoku();
-    cookie.set('sudokuTable', defaultSudoku, {path: '/'})
+    if(cookie.get('sudokuTable') === "" || !cookie.get('sudokuTable')){
+        const defaultSudoku = new Sudoku();
+        cookie.set('sudokuTable', defaultSudoku.getMtx(), {path: '/'})
+    }
+
+    
 
     return (
         <table id='sudokuTable'>

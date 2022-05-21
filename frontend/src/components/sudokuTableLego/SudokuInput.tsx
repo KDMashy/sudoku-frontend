@@ -5,13 +5,9 @@ import { SudokuProps } from '../../classes/SudokuInputInterface'
 function SudokuInput({x, y}:SudokuProps) {
 
   const cookie = new Cookies();
-  const readTable = JSON.stringify(cookie.get('sudokuTable'));
-  readTable.replace('{','').replace('}','');
-  var splitTable = readTable.split(':');
-  var table = splitTable[1].replace('}','');
-  table = JSON.parse(table);
+  const table = cookie.get('sudokuTable');
   
-  const setValue = (num:string) => {
+  const setValue = (num:string, x:number, y:number) => {
     if(parseInt(num) == 0){
       return '';
     } else {
@@ -23,16 +19,16 @@ function SudokuInput({x, y}:SudokuProps) {
     <div>
         <input 
           type="text" 
-          name={`${x}:${y}`} 
-          defaultValue={setValue(table[x][y])} />
+          id={`${x}:${y}`} 
+          defaultValue={setValue(table[x][y], x, y)} />
         <input 
           type="text"
-          name={`${x}:${y+1}`} 
-          defaultValue={setValue(table[x][y+1])}/>
+          id={`${x}:${y+1}`} 
+          defaultValue={setValue(table[x][y+1], x, y)}/>
         <input 
           type="text" 
-          name={`${x}:${y+2}`} 
-          defaultValue={setValue(table[x][y+2])}/>
+          id={`${x}:${y+2}`} 
+          defaultValue={setValue(table[x][y+2], x, y)}/>
     </div>
   )
 }
