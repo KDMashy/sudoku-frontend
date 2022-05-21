@@ -19,3 +19,7 @@ npm install @mui/icons-material
 
 Az algoritmust nemtudtam a példában láthatóan használni, mivel nem megfelelően adott visszajelzést,
 így a komponensben került meghívásra az a függvény, ami az ellenőrzésért felel, de ugyan úgy működik.
+
+# Dokumentáció, rövid leírások
+
+[Wiki](https://github.com/KDMashy/sudoku-frontend/wiki)
