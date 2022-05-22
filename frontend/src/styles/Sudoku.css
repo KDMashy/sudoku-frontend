@@ -1,5 +1,6 @@
 table {
     border-collapse: collapse;
+    margin-bottom: 5%;
 }
 
 table tbody td {
@@ -15,4 +16,13 @@ table input {
     font-size: 125%;
     text-align: center;
     border: 1px solid #000
+}
+
+@media only screen and (max-width: 1200px) {
+    table input {
+        width: 18px;
+        height: 18px;
+        padding: 4px;
+        margin: 4px;
+    }
 }
