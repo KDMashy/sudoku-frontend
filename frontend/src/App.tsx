@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import Subscribe from './pages/Subscribe';
 import SolverPage from './pages/SolverPage';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/' element={<LandingPage />}/>
             <Route path='/subscribe' element={<Subscribe />}/>
             <Route path='/solver' element={<SolverPage />}/>
+            <Route path='*' element={<NotFound />}/>
           </Routes>
         <Footer />
       </Router>
