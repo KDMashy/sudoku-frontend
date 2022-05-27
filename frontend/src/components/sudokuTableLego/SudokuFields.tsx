@@ -1,4 +1,3 @@
-import React from 'react'
 import SudokuInput from './SudokuInput';
 import { SudokuProps } from '../../classes/SudokuInputInterface'
 

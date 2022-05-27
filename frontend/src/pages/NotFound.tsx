@@ -1,5 +1,3 @@
-import { useEffect, useState, useCallback } from 'react'
-
 function NotFound() {
   return (
     <div className='site'>

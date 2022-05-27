@@ -1,4 +1,3 @@
-import React from 'react';
 import "../styles/Footer.css";
 import Fox from '../res/fox.png';
 

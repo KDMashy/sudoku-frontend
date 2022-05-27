@@ -1,6 +1,14 @@
 # sudoku-frontend
  Egy oldal arra, hogy megoldjon neked Sudoku feladványokat
 
+# Indítás
+
+cd ./frontend/
+
+npm install
+
+npm start
+
 # Telepített csomagok
 
 npm install react-router-dom

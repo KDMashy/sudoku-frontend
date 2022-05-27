@@ -1,25 +1,36 @@
-import React, { useState } from 'react'
-import { Utils } from '../classes/Utils';
+import { useState } from 'react'
+import { checkEmail, sendSubscribe } from '../classes/Utils';
 import '../styles/Main.css';
 
 function Subscribe() {
 
     const [message, setMessage] = useState<string>('');
     const [email, setEmail] = useState<string>('');
-    const util = new Utils();
 
-    const sendData = async () => {
-        var check:boolean = util.checkEmail(email);
+    const sendData = async (evt: any) => {
+        evt.preventDefault();
+
+        var check:boolean = checkEmail(email);
         var difficulty = (document.getElementById('difficulty') as HTMLInputElement).value;
         if(check){
-            var sent = await util.sendSubscribe(email, difficulty);
+            var sent = await sendSubscribe(email, difficulty);
             if(sent){
-                alert('Sikeres Feliratkozás feladat elküldésre');
+                setMessage('Sikeres feliratkozás feladat elküldésre');
             } else {
-                alert('Hiba történt a küldés során');
+                setMessage('Hiba történt a küldés során');
             }
         } else {
             setMessage("Hibás email cím formátum!");
+        }
+    }
+
+    const checkUpdate = (evt: any) => {
+        let check:boolean = checkEmail(evt.target.value);
+        if (!check) {
+            setMessage("Hibás email cím formátum!");
+        } else {
+            setMessage("");
+            setEmail(evt.target.value);
         }
     }
 
@@ -32,16 +43,7 @@ function Subscribe() {
                         <input 
                             type='email'
                             placeholder='Email...'
-                            onChange={(e) => {
-                                var check:boolean = util.checkEmail(e.target.value);
-                                if (!check) {
-                                    setMessage("Hibás email cím formátum!");
-                                } else {
-                                    setMessage("");
-                                    setEmail(e.target.value);
-                                }
-                                console.log(check)
-                            }}
+                            onChange={(evt) => { checkUpdate(evt) }}
                         />
 
                         <select id='difficulty'>
@@ -55,12 +57,9 @@ function Subscribe() {
                             fontSize: '125%', 
                             fontWeight: 'bold',
                             textAlign: 'center'
-                        }}>{message}</p>
+                        }}>{ message }</p>
 
-                        <button onClick={async (e) => {
-                            e.preventDefault();
-                            sendData();
-                        }}>Elküldés</button>
+                        <button onClick={async (evt) => { sendData(evt) }}>Elküldés</button>
                     </div>
                 </div>
             </div>

@@ -1,14 +1,18 @@
-import React from 'react'
-import Cookies from 'universal-cookie'
+import { createDefaultMtx } from '../../classes/Sudoku';
 import { SudokuProps } from '../../classes/SudokuInputInterface'
+import { transferTable } from '../../classes/Utils';
 
 function SudokuInput({x, y}:SudokuProps) {
 
-  const cookie = new Cookies();
-  const table = cookie.get('sudokuTable');
-  
-  const setValue = (num:string, x:number, y:number) => {
-    if(parseInt(num) == 0){
+  let stringTable = localStorage.getItem('sudokuTable');
+  let table = createDefaultMtx();
+
+  if(stringTable){
+    table = transferTable(stringTable, table);
+  }
+
+  const setValue = (num:number, x:number, y:number) => {
+    if(num === 0){
       return '';
     } else {
       return num;

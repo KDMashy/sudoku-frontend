@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import "../styles/Navbar.css";
@@ -33,9 +33,15 @@ function Navbar() {
         <div className='navbar'>
             <div className='leftside' id={openLinks ? "open" : "close"}>
                 <div className='hiddenLinks'>
-                <Link to="/" onClick={toggleNavbar}> Kezdőlap </Link>
-                <Link to="/subscribe" onClick={toggleNavbar}> Feliratkozás </Link>
-                <Link to="/solver" onClick={toggleNavbar}> Sudoku megoldás </Link>
+                <Link
+                 to="/" 
+                 onClick={toggleNavbar}> Kezdőlap </Link>
+                <Link
+                 to="/subscribe"
+                 onClick={toggleNavbar}> Feliratkozás </Link>
+                <Link 
+                  to="/solver" 
+                  onClick={toggleNavbar}> Sudoku megoldás </Link>
                 </div>
             </div>
             <div className='rightside'>

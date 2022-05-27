@@ -1,16 +1,14 @@
-import React from 'react'
 import SudokuPart from './sudokuTableLego/SudokuPart';
 import '../styles/Sudoku.css'
-import { Sudoku } from '../classes/Sudoku';
-import Cookies from 'universal-cookie';
+import { createDefaultMtx } from '../classes/Sudoku';
+import { standardifyStringSession } from '../classes/Utils';
 
 function SudokuTable() {
 
-    const cookie = new Cookies();
-
-    if(cookie.get('sudokuTable') === "" || !cookie.get('sudokuTable')){
-        const defaultSudoku = new Sudoku();
-        cookie.set('sudokuTable', defaultSudoku.getMtx(), {path: '/'})
+    if(localStorage.getItem('sudokuTable') === "" || !localStorage.getItem('sudokuTable')){
+        const defaultSudoku = createDefaultMtx();
+        let toSave = standardifyStringSession(defaultSudoku)
+        localStorage.setItem('sudokuTable', toSave)
     }
 
     return (

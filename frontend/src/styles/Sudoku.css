@@ -1,6 +1,6 @@
 table {
     border-collapse: collapse;
-    margin-bottom: 5%;
+    margin-bottom: 15%;
 }
 
 table tbody td {
@@ -8,8 +8,8 @@ table tbody td {
 }
 
 table input {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border: none;
     padding: 5px;
     margin: 5px;

@@ -8,9 +8,9 @@ button {
 
 .subscribe select {
     border-radius: 10px;
-    padding: 15px 50px;
+    padding: 15px 5%;
     margin: 20px;
-    width: 25%;
+    width: 40%;
     border: none;
     background-color: rgba(133, 221, 233, 0.521);
     font-size: 150%;
@@ -84,7 +84,7 @@ button {
 
 .defaultContainer button {
     border-radius: 50px;
-    padding: 15px 50px;
+    padding: 15px 0;
     margin: 20px;
     width: 25%;
     background-color: rgb(111, 238, 132);
@@ -148,6 +148,10 @@ button {
     .defaultContainer a {
         font-size: 125%;
     }
+
+    .subscribe select {
+        font-size: 125%;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -166,6 +170,21 @@ button {
 
     .solverPage {
         flex-wrap: wrap;
+    }
+
+    .subscribe select {
+        font-size: 100%;
+        padding: 15px 10%;
+        width: 60%;
+        margin: 10% 0;
+    }
+
+    .subscribe input {
+        width: 100%;
+    }
+
+    .subscribe button {
+        width: 50%;
     }
 }
 
@@ -190,6 +209,19 @@ button {
 
     .solverPage .solverButtons .solve,
     .solverPage .solverButtons .clear{
-        font-size: 110%;
+        font-size: 100%;
+        padding: 15px 0;
+    }
+
+    .subscribe select {
+        font-size: 100%;
+        width: 100%;
+        padding: 15px 10%;
+        margin: 10% 0;
+    }
+
+    .subscribe button {
+        margin: 0;
+        width: 100%;
     }
 }
