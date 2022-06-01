@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { createDefaultMtx, safe, solve } from '../classes/Sudoku';
-import { standardifyStringSession, transferTable } from '../classes/Utils';
+import { Sudoku } from '../classes/Sudoku';
+import { Utils } from '../classes/Utils';
 import SudokuTable from '../components/SudokuTable';
 import '../styles/Main.css';
 
@@ -11,10 +11,10 @@ function SolverPage() {
     const checkMtx = () => {
         const table = localStorage.getItem('userSudoku');
         const canSolve = localStorage.getItem('canSolve');
-        let sudoku = createDefaultMtx();
+        let sudoku = Sudoku.createDefaultMtx();
 
         if(table && canSolve){
-            sudoku = transferTable(table, sudoku);
+            sudoku = Utils.transferTable(table, sudoku);
 
             if(sudoku){
                 for(var i = 0; i < 9; i++){
@@ -39,7 +39,7 @@ function SolverPage() {
     }
 
     const setMtx = () => {
-        let mtx = createDefaultMtx();
+        let mtx = Sudoku.createDefaultMtx();
         let canNotSolve: boolean = false;
 
         for(let i = 0; i < 9; i++){
@@ -53,7 +53,7 @@ function SolverPage() {
                 let num = parseInt(text);
 
                 if(
-                    (!safe(mtx, i, j, num) &&
+                    (!Sudoku.safe(mtx, i, j, num) &&
                      num > 0) || num < 0 || num > 9){
                     
                     canNotSolve = true;
@@ -64,7 +64,7 @@ function SolverPage() {
         }
 
         if(canNotSolve){
-            let toSave = standardifyStringSession(mtx);
+            let toSave = Utils.standardifyStringSession(mtx);
 
             localStorage.setItem('userSudoku', toSave);
             localStorage.setItem('sudokuTable', toSave);
@@ -75,12 +75,12 @@ function SolverPage() {
         //Save user given data
         if(localStorage.getItem("userSudoku") === "" ||
             !localStorage.getItem("userSudoku")){
-                let toSave = standardifyStringSession(mtx);
+                let toSave = Utils.standardifyStringSession(mtx);
                 localStorage.setItem('userSudoku', toSave);
         }
 
         //Solve and save solved data
-        solve(mtx, 0, 0);
+        Sudoku.solve(mtx, 0, 0);
 
         localStorage.setItem('canSolve', 'false');
 

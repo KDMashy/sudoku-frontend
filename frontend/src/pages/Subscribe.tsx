@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { checkEmail, sendSubscribe } from '../classes/Utils';
+import { Utils } from '../classes/Utils';
 import '../styles/Main.css';
 
 function Subscribe() {
@@ -10,10 +10,10 @@ function Subscribe() {
     const sendData = async (evt: any) => {
         evt.preventDefault();
 
-        var check:boolean = checkEmail(email);
+        var check:boolean = Utils.checkEmail(email);
         var difficulty = (document.getElementById('difficulty') as HTMLInputElement).value;
         if(check){
-            var sent = await sendSubscribe(email, difficulty);
+            var sent = await Utils.sendSubscribe(email, difficulty);
             if(sent){
                 setMessage('Sikeres feliratkozás feladat elküldésre');
             } else {
@@ -25,7 +25,7 @@ function Subscribe() {
     }
 
     const checkUpdate = (evt: any) => {
-        let check:boolean = checkEmail(evt.target.value);
+        let check:boolean = Utils.checkEmail(evt.target.value);
         if (!check) {
             setMessage("Hibás email cím formátum!");
         } else {

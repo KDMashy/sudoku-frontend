@@ -1,13 +1,13 @@
 import SudokuPart from './sudokuTableLego/SudokuPart';
 import '../styles/Sudoku.css'
-import { createDefaultMtx } from '../classes/Sudoku';
-import { standardifyStringSession } from '../classes/Utils';
+import { Sudoku } from '../classes/Sudoku';
+import { Utils } from '../classes/Utils';
 
 function SudokuTable() {
 
     if(localStorage.getItem('sudokuTable') === "" || !localStorage.getItem('sudokuTable')){
-        const defaultSudoku = createDefaultMtx();
-        let toSave = standardifyStringSession(defaultSudoku)
+        const defaultSudoku = Sudoku.createDefaultMtx();
+        let toSave = Utils.standardifyStringSession(defaultSudoku)
         localStorage.setItem('sudokuTable', toSave)
     }
 

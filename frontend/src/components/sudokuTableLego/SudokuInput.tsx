@@ -1,14 +1,14 @@
-import { createDefaultMtx } from '../../classes/Sudoku';
+import { Sudoku } from '../../classes/Sudoku';
 import { SudokuProps } from '../../classes/SudokuInputInterface'
-import { transferTable } from '../../classes/Utils';
+import { Utils } from '../../classes/Utils';
 
 function SudokuInput({x, y}:SudokuProps) {
 
   let stringTable = localStorage.getItem('sudokuTable');
-  let table = createDefaultMtx();
+  let table = Sudoku.createDefaultMtx();
 
   if(stringTable){
-    table = transferTable(stringTable, table);
+    table = Utils.transferTable(stringTable, table);
   }
 
   const setValue = (num:number, x:number, y:number) => {
